@@ -163,7 +163,7 @@
                     <input-type value-pairs-name="common_types">dropdown</input-type>
                     <hint>Select the type of content of the item.
                     </hint>
-                    <required>You must choose at least one type.</required>
+                    <required></required>
                 </field>
             </row>
             <row>
@@ -208,7 +208,7 @@
                     <repeatable>false</repeatable>
                     <label>Abstract</label>
                     <input-type>textarea</input-type>
-                    <hint>Enter the abstract of the item.</hint>
+                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics.</hint>
                     <required></required>
                 </field>
             </row>
@@ -366,7 +366,7 @@
                     <hint>Select the type(s) of content of the item. To select more than one value in the list, you may
                         have to hold down the "CTRL" or "Shift" key.
                     </hint>
-                    <required>You must choose at least one type.</required>
+                    <required></required>
                 </field>
             </row>
             <row>
@@ -516,7 +516,7 @@
 <!--            </row>-->
             <row>
                 <relation-field>
-                    <relationship-type>isPersonOfProject</relationship-type>
+                    <relationship-type>isProjectOfPerson</relationship-type>
                     <search-configuration>person</search-configuration>
                     <repeatable>true</repeatable>
                     <label>Investigator</label>
@@ -531,18 +531,18 @@
             </row>
             <row>
                 <relation-field>
-                    <relationship-type>isOrgUnitOfProject</relationship-type>
+                    <relationship-type>isProjectOfOrgUnit</relationship-type>
                     <search-configuration>orgunit</search-configuration>
                     <repeatable>false</repeatable>
                     <label>Organization</label>
                     <hint>Enter the organization's name</hint>
                     <linked-metadata-field>
-                        <dc-schema>dc</dc-schema>
-                        <dc-element>contributor</dc-element>
-                        <dc-qualifier>other</dc-qualifier>
+                        <dc-schema>project</dc-schema>
+                        <dc-element>funder</dc-element>
+                        <dc-qualifier>name</dc-qualifier>
                         <input-type>onebox</input-type>
                     </linked-metadata-field>
-                    <externalsources>ror</externalsources>
+                    <externalsources/>
                 </relation-field>
             </row>
             <row>
@@ -819,9 +819,9 @@
 
         </form>
 
-        <!-- Openaire specific forms -->
+        <!-- OpenAIRE specific forms -->
 
-        <form name="openairePublicationPageoneForm">
+        <form name="openAIREPublicationPageoneForm">
             <row>
                 <field>
                     <dc-schema>dc</dc-schema>
@@ -1041,7 +1041,7 @@
                     <hint>Select the type(s) of content of the item. To select more than one value in the list, you may
                         have to hold down the "CTRL" or "Shift" key.
                     </hint>
-                    <required>You must choose at least one type.</required>
+                    <required></required>
                 </field>
             </row>
             <row>
@@ -1071,7 +1071,7 @@
             </row>
         </form>
 
-        <form name="openairePublicationPagetwoForm">
+        <form name="openAIREPublicationPagetwoForm">
             <row>
                 <field>
                     <dc-schema>dc</dc-schema>
@@ -1112,7 +1112,7 @@
                     <repeatable>false</repeatable>
                     <label>Abstract</label>
                     <input-type>textarea</input-type>
-                    <hint>Enter the abstract of the item.</hint>
+                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics.</hint>
                     <required></required>
                 </field>
             </row>
@@ -1129,7 +1129,7 @@
                         <dc-element>relation</dc-element>
                         <input-type>onebox</input-type>
                     </linked-metadata-field>
-                    <externalsources>openaireFunding</externalsources>
+                    <externalsources>openAIREFunding</externalsources>
                     <required></required>
                 </relation-field>
             </row>
@@ -1182,7 +1182,7 @@
             </row>
         </form>
 
-        <form name="openairePersonForm">
+        <form name="openAIREPersonForm">
             <row>
                 <field>
                     <dc-schema>person</dc-schema>
@@ -1246,7 +1246,7 @@
             </row>
         </form>
 
-        <form name="openaireProjectForm">
+        <form name="openAIREProjectForm">
             <row>
                 <field>
                     <dc-schema>dc</dc-schema>
@@ -1269,7 +1269,7 @@
             <row>
                 <relation-field>
                     <relationship-type>isFundingAgencyOfProject</relationship-type>
-                    <search-configuration>openaireFundingAgency</search-configuration>
+                    <search-configuration>openAIREFundingAgency</search-configuration>
                     <repeatable>false</repeatable>
                     <name-variants>false</name-variants>
                     <label>Funding Agency</label>
@@ -1302,7 +1302,7 @@
             </row>
         </form>
 
-        <form name="openaireOrganizationForm">
+        <form name="openAIREOrganizationForm">
             <row>
                 <field>
                     <dc-schema>organization</dc-schema>
@@ -1347,6 +1347,545 @@
                 </field>
             </row>
         </form>
+
+      <!-- UO Costomized forms -->
+      <form name="simplepage1">
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>contributor</dc-element>
+            <dc-qualifier>author</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Authors</label>
+            <input-type>name</input-type>
+            <hint>Enter the names of the authors or creators of this item below.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>title</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Title</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the title of the item. You must enter a title for this item.</hint>
+            <required>You must enter a title for this item.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>date</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Date</label>
+            <input-type>date</input-type>
+            <hint>You must enter at least the year. You can leave out the day and/or month if they aren't applicable.</hint>
+            <required>You must enter at least the year.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>description</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Description</label>
+            <input-type>textarea</input-type>
+            <hint> Enter any other description or comments in this box. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>subject</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Subject Keywords</label>
+            <input-type>tag</input-type>
+            <hint> Enter appropriate subject keywords or phrases below. </hint>
+            <required/>
+          </field>
+        </row>
+      </form>
+
+      <form name="pubpage1">
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>title</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Title</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the title of the item. You must enter a title for this item.</hint>
+            <required>You must enter a title for this item.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>contributor</dc-element>
+            <dc-qualifier>author</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Authors</label>
+            <input-type>name</input-type>
+            <hint>Enter the names of the authors or creators of this item below.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>date</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Date created</label>
+            <input-type>date</input-type>
+            <hint>You must enter at least the year. You can leave out the day and/or month if they aren't applicable.</hint>
+            <required>You must enter at least the year.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>date</dc-element>
+            <dc-qualifier>issued</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Date issued (updated)</label>
+            <input-type>date</input-type>
+            <hint>You must enter at least the year. You can leave out the day and/or month if they aren't applicable.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>publisher</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Publisher</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>subject</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Subject keywords</label>
+            <input-type>tag</input-type>
+            <hint> Enter appropriate subject keywords or phrases below. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>relation</dc-element>
+            <dc-qualifier>ispartof</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Is part of</label>
+            <input-type>onebox</input-type>
+            <hint>Enter a string to reference the larger text to which this item belongs.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>relation</dc-element>
+            <dc-qualifier>isreferencedby</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Index</label>
+            <input-type>onebox</input-type>
+            <hint>Enter a string to reference the index for the whole.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>relation</dc-element>
+            <dc-qualifier>uri</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Link to related items</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the handles/links to the larger text and index to which this item belongs.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>relation</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Related resources</label>
+            <input-type>onebox</input-type>
+            <hint>Enter additional information for related resources.</hint>
+            <required/>
+          </field>
+        </row>
+      </form>
+      
+      <form name="dlcdpage1">
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>title</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Title</label>
+            <input-type>onebox</input-type>
+            <hint>Enter a distinguishing title or place, type of document, and date (e.g. "Adair Village Notice of Adopted Amendment (2009-11-23)</hint>
+            <required>You must enter a title.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>contributor</dc-element>
+            <dc-qualifier>author</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Authors</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the names of the authors or creators of this item below or responsible agent (e.g. Adair Village).</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>date</dc-element>
+            <dc-qualifier>issued</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Date accepted</label>
+            <input-type>date</input-type>
+            <hint>Date accepted by DLCD. You must enter at least the year. You can leave out the day and/or month if they aren't applicable. </hint>
+            <required>You must enter at least the year.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>coverage</dc-element>
+            <dc-qualifier>spatial</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Geographic coverage</label>
+            <input-type>onebox</input-type>
+            <hint>Enter geographic coverage areas as separate items. Use 'Oregon' and discrete region within Oregon.</hint>
+            <required>You must enter a region.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>subject</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Subject keywords</label>
+            <input-type>tag</input-type>
+            <hint>Enter appropriate subject keywords or phrases below. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>type</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Type</label>
+            <input-type value-pairs-name="common_types">dropdown</input-type>
+            <hint>Use 'Adopted Plan' for DLCD adopted plans and amendments.</hint>
+            <required>This field is required.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>language</dc-element>
+            <dc-qualifier>iso</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Language</label>
+            <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+            <hint>Select the language of the main content of the item.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>source</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Source</label>
+            <input-type value-pairs-name="orgs">dropdown</input-type>
+            <hint>Select appropriate source for contributing to the repository.</hint>
+            <required>This field is required.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>identifier</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Identifier</label>
+            <input-type>onebox</input-type>
+            <hint>Enter identifying information assigned by previous entity (e.g. Amity_004-09_ADOPTION).</hint>
+            <required/>
+          </field>
+        </row>
+      </form>
+      
+      <form name="ugrad-researchpage1">
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>contributor</dc-element>
+            <dc-qualifier>author</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Authors</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the author name above (lastname, firstname) and click Enter. Enter each additional author separately, using the generated box.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>contributor</dc-element>
+            <dc-qualifier>advisor</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Advisors</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the advisor name above (lastname, firstname) and click Enter. Enter each additional advisor separately, using the generated box.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>title</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Title</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the title of the work.</hint>
+            <required>You must enter a title.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>subject</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Subject Keywords</label>
+            <input-type>tag</input-type>
+            <hint>Enter appropriate subject keywords or phrases. </hint>
+            <required/></field>
+          </row>
+          <row>
+            <field>
+              <dc-schema>dc</dc-schema>
+              <dc-element>description</dc-element>
+              <dc-qualifier>abstract</dc-qualifier>
+              <repeatable>false</repeatable>
+              <label>Abstract</label>
+              <input-type>textarea</input-type>
+              <hint>Enter the abstract for this item. </hint>
+              <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>description</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Description</label>
+            <input-type>textarea</input-type>
+            <hint>Enter details about physical description in this box. (Eg. “Single page poster”, or “20 pages”.) </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>description</dc-element>
+            <dc-qualifier>sponsorship</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Sponsors</label>
+            <input-type>textarea</input-type>
+            <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>identifier</dc-element>
+            <dc-qualifier>uri</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>ORCiD Identifier</label>
+            <input-type>onebox</input-type>
+            <hint>Enter ORCiD if available.</hint>
+            <required/>
+          </field>
+        </row>
+      </form>
+      
+      <form name="pppmpage1">
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>contributor</dc-element>
+            <dc-qualifier>author</dc-qualifier>
+            <repeatable>true</repeatable>
+            <label>Authors</label>
+            <input-type>name</input-type>
+            <hint>Enter the names of the authors of this item.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>title</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Title</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the main title of the item.</hint>
+            <required>You must enter a main title for this item.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>date</dc-element>
+            <dc-qualifier>issued</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Date of Issue</label>
+            <input-type>date</input-type>
+            <hint>Please give the date of previous publication or public distribution.
+                          You can leave out the day and/or month if they aren't
+                          applicable.</hint>
+            <required>You must enter at least the year.</required>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>publisher</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Publisher</label>
+            <input-type>onebox</input-type>
+            <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>type</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Type</label>
+            <input-type value-pairs-name="common_types">dropdown</input-type>
+            <hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>language</dc-element>
+            <dc-qualifier>iso</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Language</label>
+            <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+            <hint>Select the language of the main content of the item.  If the language does not appear in the list, please select 'Other'.  If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'.</hint>
+            <required/>
+          </field>
+        </row>
+      </form>
+      
+      <form name="pppmpage2">
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>subject</dc-element>
+            <dc-qualifier/>
+            <repeatable>true</repeatable>
+            <label>Subject Keywords</label>
+            <input-type>tag</input-type>
+            <hint>Enter appropriate subject keywords or phrases. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>description</dc-element>
+            <dc-qualifier>abstract</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Abstract</label>
+            <input-type>textarea</input-type>
+            <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>description</dc-element>
+            <dc-qualifier>sponsorship</dc-qualifier>
+            <repeatable>false</repeatable>
+            <label>Sponsors</label>
+            <input-type>textarea</input-type>
+            <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
+            <required/>
+          </field>
+        </row>
+        <row>
+          <field>
+            <dc-schema>dc</dc-schema>
+            <dc-element>description</dc-element>
+            <dc-qualifier/>
+            <repeatable>false</repeatable>
+            <label>Description</label>
+            <input-type>textarea</input-type>
+            <hint>Enter any other description or comments in this box. </hint>
+            <required/>
+          </field>
+        </row>
+      </form>
+
+      <form name="licesnse_uo">
+        <row>
+            <field>
+                <dc-schema>dc</dc-schema>
+                <dc-element>rights</dc-element>
+                <dc-qualifier/>
+                <repeatable>false</repeatable>
+                <label>Licenses</label>
+                <input-type value-pairs-name="licenses_uo_rights">dropdown</input-type>
+                <hint>Choose a license to manage author copyright terms. Creative Commons BY-NC-ND 4.0-US is the default for this archive, but you may another choice.</hint>
+                <required>You must choose a license for this submission</required>
+            </field>
+        </row>
+      </form>
 
     </form-definitions>
 
@@ -1394,12 +1933,24 @@
 
         <value-pairs value-pairs-name="common_types" dc-term="type">
             <pair>
+                <displayed-value>Adopted Plan</displayed-value>
+                <stored-value>Adopted Plan</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Animation</displayed-value>
                 <stored-value>Animation</stored-value>
             </pair>
             <pair>
+                <displayed-value>Architectural Plan</displayed-value>
+                <stored-value>Architectural Plan</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Article</displayed-value>
                 <stored-value>Article</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Blog</displayed-value>
+                <stored-value>Blog</stored-value>
             </pair>
             <pair>
                 <displayed-value>Book</displayed-value>
@@ -1412,6 +1963,10 @@
             <pair>
                 <displayed-value>Dataset</displayed-value>
                 <stored-value>Dataset</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Educational Plan</displayed-value>
+                <stored-value>Educational Plan</stored-value>
             </pair>
             <pair>
                 <displayed-value>Learning Object</displayed-value>
@@ -1466,16 +2021,32 @@
                 <stored-value>Technical Report</stored-value>
             </pair>
             <pair>
-                <displayed-value>Thesis</displayed-value>
-                <stored-value>Thesis</stored-value>
+                <displayed-value>Terminal Project</displayed-value>
+                <stored-value>Terminal Project</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Thesis / Dissertation</displayed-value>
+                <stored-value>Thesis / Dissertation</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>University Record</displayed-value>
+                <stored-value>University Record</stored-value>
             </pair>
             <pair>
                 <displayed-value>Video</displayed-value>
                 <stored-value>Video</stored-value>
             </pair>
             <pair>
+                <displayed-value>Website</displayed-value>
+                <stored-value>Website</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Working Paper</displayed-value>
                 <stored-value>Working Paper</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Yearbook</displayed-value>
+                <stored-value>Yearbook</stored-value>
             </pair>
             <pair>
                 <displayed-value>Other</displayed-value>
@@ -1537,7 +2108,7 @@
             </pair>
         </value-pairs>
 
-        <!-- Openaire specific value pairs -->
+        <!-- OpenAIRE specific value pairs -->
 
         <value-pairs value-pairs-name="openaire_license_types" dc-term="license">
 
@@ -1549,27 +2120,27 @@
             </pair>
             <pair>
                 <displayed-value>Attribution (CC-BY)</displayed-value>
-                <stored-value>https://creativecommons.org/licenses/by/4.0/</stored-value>
+                <stored-value>http://creativecommons.org/licenses/by/4.0/</stored-value>
             </pair>
             <pair>
                 <displayed-value>Attribution, No Derivative Works (CC-BY-ND)</displayed-value>
-                <stored-value>https://creativecommons.org/licenses/by-nd/4.0/</stored-value>
+                <stored-value>http://creativecommons.org/licenses/by-nd/4.0/</stored-value>
             </pair>
             <pair>
                 <displayed-value>Attribution, Share-alike (CC-BY-SA)</displayed-value>
-                <stored-value>https://creativecommons.org/licenses/by-sa/4.0/</stored-value>
+                <stored-value>http://creativecommons.org/licenses/by-sa/4.0/</stored-value>
             </pair>
             <pair>
                 <displayed-value>Attribution, Non-commercial (CC-BY-NC)</displayed-value>
-                <stored-value>https://creativecommons.org/licenses/by-nc/4.0/</stored-value>
+                <stored-value>http://creativecommons.org/licenses/by-nc/4.0/</stored-value>
             </pair>
             <pair>
                 <displayed-value>Attribution, Non-commercial, No Derivative Works (CC-BY-NC-ND)</displayed-value>
-                <stored-value>https://creativecommons.org/licenses/by-nc-nd/4.0/</stored-value>
+                <stored-value>http://creativecommons.org/licenses/by-nc-nd/4.0/</stored-value>
             </pair>
             <pair>
                 <displayed-value>Attribution, Non-commercial, Share-alike (CC-BY-NC-SA)</displayed-value>
-                <stored-value>https://creativecommons.org/licenses/by-nc-sa/4.0/</stored-value>
+                <stored-value>http://creativecommons.org/licenses/by-nc-sa/4.0/</stored-value>
             </pair>
             <!-- Add here other licenses -->
             <pair>
@@ -1579,7 +2150,7 @@
 
         </value-pairs>
 
-        <!-- Openaire document types
+        <!-- OpenAIRE document types
              https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html
              Based on COAR Vocabularies -> Controlled Vocabulary for Resource Type Genres (Version 2.0):
              http://vocabularies.coar-repositories.org/documentation/resource_types/
@@ -1985,6 +2556,92 @@
                 <stored-value>FundingOrganization</stored-value>
             </pair>
         </value-pairs>
+
+      <!-- UO Cosomized pair values -->
+      <value-pairs value-pairs-name="licenses" dc-term="rights">
+        <pair>
+          <displayed-value>Creative Commons BY-NC-ND 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-NC-ND 4.0-US</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons  BY-NC-SA 4.0-US</displayed-value>
+          <stored-value>Creative Commons  BY-NC-SA</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-NC 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-NC 4.0-US</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-SA 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-SA</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-ND 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-ND</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons CC0 1.0 Universal</displayed-value>
+          <stored-value>Creative Commons CC0 1.0 Universal</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Public Domain</displayed-value>
+          <stored-value>Public Domain</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>All Rights Reserved.</displayed-value>
+          <stored-value>All Rights Reserved.</stored-value>
+        </pair>
+      </value-pairs>
+
+      <value-pairs value-pairs-name="orgs" dc-term="source">
+        <pair>
+          <displayed-value>Oregon Department of Land Conservation and Development</displayed-value>
+          <stored-value>Oregon Department of Land Conservation and Development</stored-value>
+        </pair>
+      </value-pairs>
+
+    <value-pairs value-pairs-name="licenses_uo_rights" dc-term="rights">
+        <pair>
+          <displayed-value>Creative Commons BY-NC-ND 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-NC-ND 4.0-US</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons  BY-NC-SA 4.0-US</displayed-value>
+          <stored-value>Creative Commons  BY-NC-SA</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-NC 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-NC 4.0-US</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-SA 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-SA</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-ND 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-ND</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons CC0 1.0 Universal</displayed-value>
+          <stored-value>Creative Commons CC0 1.0 Universal</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Public Domain</displayed-value>
+          <stored-value>Public Domain</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>All Rights Reserved</displayed-value>
+          <stored-value>All Rights Reserved</stored-value>
+        </pair>
+    </value-pairs>
 
     </form-value-pairs>
 

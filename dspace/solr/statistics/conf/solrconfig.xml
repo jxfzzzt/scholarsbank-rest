@@ -37,7 +37,7 @@
     <schemaFactory class="ClassicIndexSchemaFactory"/>
 
     <indexConfig>
-        <ramBufferSizeMB>32</ramBufferSizeMB>
+        <ramBufferSizeMB>512</ramBufferSizeMB>
         <maxBufferedDocs>1000</maxBufferedDocs>
         <lockType>${solr.lock.type:native}</lockType>
         <!-- Set to true to "write detailed debug information from the
