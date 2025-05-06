@@ -24,4 +24,4 @@ By Service: ${params[0]}
 Service URL: ${params[2]}
 Date: ${params[5]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

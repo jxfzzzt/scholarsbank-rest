@@ -104,7 +104,7 @@ import org.dspace.services.factory.DSpaceServicesFactory;
  *     Thank you for sending us your submission &quot;${params[1]}&quot;.
  *
  *     --
- *     The ${config.get('dspace.name')} Team
+ *     ${config.get('dspace.name')}
  *
  * </pre>
  *
